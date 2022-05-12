@@ -1,6 +1,7 @@
 import time
 
-def time_it(function_name:str = None):
+
+def time_it(function_name: str = None):
     def decorator(func):
         def inner(*args, **kwargs):
             begin = time.time()

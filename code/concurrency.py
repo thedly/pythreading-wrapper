@@ -1,7 +1,7 @@
-import traceback
-from wrappers import time_it
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 from models import FunctionArgs
-from concurrent.futures import as_completed, ThreadPoolExecutor
+from wrappers import time_it
 
 
 class MultiThreading:
@@ -16,7 +16,8 @@ class MultiThreading:
         result = dict()
         try:
             with ThreadPoolExecutor(max_workers=self.__capacity) as pool:
-                tasks = {pool.submit(function.pointer, *function.arguments, **function.keyword_arguments):function for function in functions}
+                tasks = {pool.submit(function.pointer, *function.arguments, **
+                                     function.keyword_arguments): function for function in functions}
 
                 for output in as_completed(tasks):
                     functionArgs = tasks[output]
@@ -26,7 +27,6 @@ class MultiThreading:
                     except Exception as exc:
                         print("exception occured while multiprocessing")
                         print(exc)
-                        traceback.print_exc()
                     # else:
                     #     if data is not None:
                     #         print('loaded data of %d records' % (len(data)))
@@ -54,11 +54,10 @@ class MultiThreading:
                     except Exception as exc:
                         print("exception occured while multiprocessing")
                         print(exc)
-                        traceback.print_exc()
                     # else:
                     #     if data is not None:
                     #         #print('loaded data of %d records' % (len(data)))
             return result
         except Exception as ex:
-            traceback.print_exc()
+            print(ex)
             raise
