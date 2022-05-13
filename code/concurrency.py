@@ -1,14 +1,14 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from models import FunctionArgs
-from wrappers import time_it
+from .models import FunctionArgs
+from .wrappers import time_it
 
 
 class MultiThreading:
 
     __capacity: int
 
-    def __init__(self, max_workers: int = None):
+    def __init__(self, max_workers: int = 60):
         self.__capacity = max_workers
 
     @time_it('execute_async')
