@@ -1,6 +1,9 @@
-from setuptools import setup
+import setuptools
 
-setup(
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
     name='pythreading-wrapper',
     version='0.1.0',
     description='A threading wrapper which allows running multiple functions in parallel',
@@ -8,23 +11,16 @@ setup(
     author='Tejas Hedly',
     author_email='tejas.hedly@gmail.com',
     license='GNU GENERAL PUBLIC LICENSE',
-    packages=['pythreading-wrapper'],
-    install_requires=[],
-
+    install_requires=['pytest'],
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     classifiers=[
-        'Development Status :: 1 - Planning',
-        'Intended Audience :: Science/Research',
-        'License :: OSI Approved :: GNU GENERAL PUBLIC LICENSE',
-        'Operating System :: POSIX :: Linux',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.1',
-        'Programming Language :: Python :: 3.2',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
+        'Operating System :: OS Independent',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.9'
     ],
+    python_requires=">=3.6",
 )
