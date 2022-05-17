@@ -1,4 +1,4 @@
-# pythreading-wrapper
+# ThreadingWrapper
 
 
 > pip install ThreadingWrapper
