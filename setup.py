@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='pythreading-wrapper',
-    version='0.1.0',
+    version='0.0.1',
     description='A threading wrapper which allows running multiple functions in parallel',
     url='https://github.com/thedly/pythreading-wrapper',
     author='Tejas Hedly',
