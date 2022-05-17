@@ -1,7 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+from .decorators import time_it
 from .models import FunctionArgs
-from .wrappers import time_it
 
 
 class MultiThreading:
@@ -27,9 +27,6 @@ class MultiThreading:
                     except Exception as exc:
                         print("exception occured while multiprocessing")
                         print(exc)
-                    # else:
-                    #     if data is not None:
-                    #         print('loaded data of %d records' % (len(data)))
             return result
         except Exception as ex:
             print(ex)
@@ -54,9 +51,6 @@ class MultiThreading:
                     except Exception as exc:
                         print("exception occured while multiprocessing")
                         print(exc)
-                    # else:
-                    #     if data is not None:
-                    #         #print('loaded data of %d records' % (len(data)))
             return result
         except Exception as ex:
             print(ex)
