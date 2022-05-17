@@ -1,14 +1,14 @@
 # pythreading-wrapper
 
 
-> pip install pythreading-wrapper
+> pip install ThreadingWrapper
 
 
 usage
 
 ```commandline
 
-from concurrency import FunctionArgs, MultiThreading
+from ThreadingWrapper.concurrency import FunctionArgs, MultiThreading
 
 # a long running process that returns results based on 
 # a parameter passed
