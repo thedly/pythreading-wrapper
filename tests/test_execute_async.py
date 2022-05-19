@@ -2,7 +2,7 @@ import time
 
 from pytest import fixture
 
-from ..src.concurrency import FunctionArgs, MultiThreading
+from ThreadingWrapper.concurrency import FunctionArgs, MultiThreading
 
 
 def long_running_process(param1: int):
