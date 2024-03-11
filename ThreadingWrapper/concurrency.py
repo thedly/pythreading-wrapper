@@ -7,9 +7,11 @@ from .models import FunctionArgs
 class MultiThreading:
 
     __capacity: int
+    __timeout: float
 
-    def __init__(self, max_workers: int = 60):
+    def __init__(self, max_workers: int = 60, timeout = 60):
         self.__capacity = max_workers
+        self.__timeout = timeout
 
     @time_it('execute_async')
     def execute_async(self, *functions: FunctionArgs) -> dict:
@@ -19,7 +21,7 @@ class MultiThreading:
                 tasks = {pool.submit(function.pointer, *function.arguments, **
                                      function.keyword_arguments): function for function in functions}
 
-                for output in as_completed(tasks):
+                for output in as_completed(tasks, timeout=self.__timeout):
                     functionArgs = tasks[output]
                     try:
                         data = output.result()
@@ -40,7 +42,7 @@ class MultiThreading:
                 tasks = {pool.submit(function.pointer, *function.arguments, **function.keyword_arguments): function for
                          function in functions}
 
-                for output in as_completed(tasks):
+                for output in as_completed(tasks, timeout=self.__timeout):
                     try:
                         data = output.result()
                         if data is None:
