@@ -3,7 +3,6 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from .decorators import time_it
 from .models import FunctionArgs
 
-
 class MultiThreading:
 
     __capacity: int
